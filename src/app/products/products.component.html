@@ -1,0 +1,24 @@
+<h2>My Cake Donuts</h2>
+
+<table class="Products">
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Qty</th>
+    <th>Price</th>
+    <th>In Stock?</th>
+  </tr>
+  <tr *ngFor="let Product of products"
+    [class.selected]="Product === selectedProduct"
+    (click)="onSelect(Product)">
+    <td class="badge">{{Product.id}}</td>
+    <td class="badge">{{Product.name}}</td>
+    <td class="badge">{{Product.description}}</td>
+    <td class="badge">{{Product.quantityOnHand}}</td>
+    <td class="badge">{{Product.price}}</td>
+    <td class="badge">{{Product.isInStock}}</td>
+  </tr>
+</table>
+
+<product-detail [product]="selectedProduct"></product-detail>
